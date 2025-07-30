@@ -1,0 +1,50 @@
+allure-results/
+test-output/
+build/
+
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+.mvn/
+
+# Eclipse
+.classpath
+.project
+.settings/
+*.log
+*.bak
+*.swp
+*.iml
+*.iws
+*.ipr
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Other common temporary files
+*~
+#*#
+.#*
+*.bak
+*.orig
+*.rej
+*.swo
+*.swn
+*.tmp
