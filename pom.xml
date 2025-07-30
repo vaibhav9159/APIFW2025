@@ -86,8 +86,42 @@
 </dependency>
 
   </dependencies>
+  
+  
+  
+   <build>
+  
+   <plugins>
+	   
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.12.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      
+       <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.2.5</version>
+    <configuration>
+        <forkCount>3</forkCount>
+        <reuseForks>true</reuseForks>
+      <!--   <suiteXmlFiles>src/test/resources/testrunner/Regression.xml</suiteXmlFiles>   --> 
+ 		<suiteXmlFiles>${suiteXmlFilePath}</suiteXmlFiles>  
+  
+    </configuration>
+  </plugin>
+  
+    </plugins>
+  
+  
+  
 
-  <build>
+ 
     
   </build>
 </project>
