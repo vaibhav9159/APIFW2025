@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
 <suite name="API GoRest Test Suite">
-  <test thread-count="5" name="Go Rest API - create user">
+  <test  name="Go Rest API - create user">
     <classes>
        <class name="com.qa.api.gorest.tests.CreateUserTest"/>
  
     </classes>
   </test> <!-- Test -->
   
-   <test thread-count="5" name="Go Rest API - get user">
+   <test  name="Go Rest API - get user">
     <classes>
     
       <class name="com.qa.api.gorest.tests.GetUserWithDeserializationTest"/>
@@ -16,7 +17,7 @@
     </classes>
   </test> <!-- Test -->
   
-    <test thread-count="5" name="Go Rest API - get user with deserialization">
+    <test name="Go Rest API - get user with deserialization">
     <classes>
 
       <class name="com.qa.api.gorest.tests.GetUserTest"/>
@@ -24,7 +25,7 @@
   </test> <!-- Test -->
   
   
-    <test thread-count="5" name="Go Rest API - update user">
+    <test  name="Go Rest API - update user">
     <classes>
 
       <class name="com.qa.api.gorest.tests.UpdateUserTest"/>
@@ -32,7 +33,7 @@
     </classes>
   </test> <!-- Test -->
   
-    <test thread-count="5" name="Go Rest API - delete user">
+    <test name="Go Rest API - delete user">
     <classes>
       <class name="com.qa.api.gorest.tests.DeleteUserTest"/>
 

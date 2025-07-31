@@ -1,4 +1,4 @@
-package com.qa.basicauth.tests;
+package com.qa.api.basicauth.tests;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;

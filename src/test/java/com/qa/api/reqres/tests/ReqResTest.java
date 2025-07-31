@@ -1,4 +1,4 @@
-package com.qa.reqres.tests;
+package com.qa.api.reqres.tests;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
