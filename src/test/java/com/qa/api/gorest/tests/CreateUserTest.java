@@ -1,5 +1,8 @@
 package com.qa.api.gorest.tests;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -46,9 +49,9 @@ public class CreateUserTest extends BaseTest{
 	public void createUser(String name, String gender, String status) {
 		User user = new User(null,name,gender,StringUtils.getRandomEmail(),status);
 	Response response= restclient.post(BASE_URL_GOREST, GOREST_USERS_ENDPOINT, user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
-		Assert.assertEquals(response.jsonPath().getString("name"), name);
-		Assert.assertEquals(response.jsonPath().getString("gender"), gender);
-		Assert.assertEquals(response.jsonPath().getString("status"), status);
+		AssertJUnit.assertEquals(response.jsonPath().getString("name"), name);
+		AssertJUnit.assertEquals(response.jsonPath().getString("gender"), gender);
+		AssertJUnit.assertEquals(response.jsonPath().getString("status"), status);
 		Assert.assertNotNull("id");
 	}
 	

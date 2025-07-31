@@ -6,6 +6,7 @@ import org.testng.annotations.Listeners;
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.api.client.RestClient;
+import com.qa.api.configmanager.ConfigManager;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -16,12 +17,20 @@ public class BaseTest {
 	protected RestClient restclient;
 	
 	////// API BAse URLS //////////
-	protected final static String BASE_URL_GOREST = "https://gorest.co.in";
-	protected final static String BASE_URL_CONTACTS = "https://thinking-tester-contact-list.herokuapp.com";
-	protected final static String BASE_URL_REQRES = "https://reqres.in";
-	protected final static String BASE_URL_HEROKU_BASICAUTH = "https://the-internet.herokuapp.com";
-	protected final static String BASE_URL_PRODUCTS = "https://fakestoreapi.com";
-	protected final static String BASE_URL_AMADEUS_OAUTH2 = "https://test.api.amadeus.com";
+	protected static String BASE_URL_GOREST;
+	protected  static String BASE_URL_CONTACTS ;
+	protected  static String BASE_URL_REQRES;
+	protected  static String BASE_URL_HEROKU_BASICAUTH ;
+	protected  static String BASE_URL_PRODUCTS;
+	protected  static String BASE_URL_AMADEUS_OAUTH2;
+	
+	
+//	protected final static String BASE_URL_GOREST = "https://gorest.co.in";
+//	protected final static String BASE_URL_CONTACTS = "https://thinking-tester-contact-list.herokuapp.com";
+//	protected final static String BASE_URL_REQRES = "https://reqres.in";
+//	protected final static String BASE_URL_HEROKU_BASICAUTH = "https://the-internet.herokuapp.com";
+//	protected final static String BASE_URL_PRODUCTS = "https://fakestoreapi.com";
+//	protected final static String BASE_URL_AMADEUS_OAUTH2 = "https://test.api.amadeus.com";
 
 	
 //////API EndPoint URLS //////////
@@ -36,8 +45,16 @@ public class BaseTest {
 	
 	
 	@BeforeSuite
-	public void setupAllure() {
+	public void initialSetUp() {
 		RestAssured.filters(new AllureRestAssured());
+		BASE_URL_GOREST = ConfigManager.get("baseurl.gorest").trim();
+		BASE_URL_CONTACTS = ConfigManager.get("baseurl.contacts").trim();
+		BASE_URL_REQRES = ConfigManager.get("baseurl.reqres").trim();
+		BASE_URL_HEROKU_BASICAUTH = ConfigManager.get("baseurl.basicauth").trim();
+		BASE_URL_PRODUCTS = ConfigManager.get("baseurl.products").trim();
+		BASE_URL_AMADEUS_OAUTH2 = ConfigManager.get("baseurl.amadeus").trim();
+		
+		
 	}
 	
 	@BeforeTest

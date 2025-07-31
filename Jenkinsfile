@@ -37,7 +37,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/vaibhav9159/APIFW2025'
-                    sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Regression.xml"
+                    sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Regression.xml -Denv=qa"
                     
                 }
             }
@@ -72,7 +72,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                   	 git 'https://github.com/vaibhav9159/APIFW2025'
-                    sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/GoRestSanity.xml"
+                    sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Sanity.xml -Denv=qa"
                     
                 }
             }
