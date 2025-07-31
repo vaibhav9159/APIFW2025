@@ -78,6 +78,19 @@ pipeline
             }
         }
         
+           stage('Publish Allure Reports for sanity') {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
+            }
+        }
         
         
         stage("Deploy to PROD"){
