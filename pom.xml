@@ -93,7 +93,7 @@
   
    <plugins>
 	   
-      <plugin>
+       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.12.1</version>
@@ -103,17 +103,18 @@
         </configuration>
       </plugin>
       
-      
-     <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.3</version>
-        <configuration>
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteXmlFilePath}</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
+       <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.5.0</version>
+    <configuration>
+        <forkCount>3</forkCount>
+        <reuseForks>true</reuseForks>
+    <!--     <suiteXmlFiles>src/test/resources/testrunner/Regression.xml</suiteXmlFiles>   --> 
+ 		<suiteXmlFiles>${suiteXmlFilePath}</suiteXmlFiles>  
+  
+    </configuration>
+  </plugin>
       
       
       
