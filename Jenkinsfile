@@ -1,68 +1,89 @@
-pipeline {
+pipeline 
+{
     agent any
+    
+    tools{
+    	maven 'maven'
+        }
 
-    stages {
-        stage('Check Test Build') {
-            steps {
-                echo 'build the project'
-            }
-        }
-        
-          stage('Run unit test') 
+    stages 
+    {
+        stage('Build') 
         {
             steps
             {
-                echo ("UTs done")
+                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-        }
-        
-          stage('Run Integration tests') 
-        {
-            steps
+            post 
             {
-                echo ("Integration tests done")
+                success
+                {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
             }
         }
         
-         stage('Deploy to Dev') 
-        {
-            steps
-            {
-                echo ("dev deployment done")
-            }
-        }
         
-         stage("Deploy to QA"){
+        
+        stage("Deploy to QA"){
             steps{
                 echo("deploy to qa done")
             }
         }
-        
-         stage("Run regression tests"){
-            steps{
-                echo("Regression tests done")
+                
+        stage('Regression API Automation Test') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/vaibhav9159/APIFW2025'
+                    sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Regression.xml"
+                    
+                }
             }
         }
         
-            stage("Deploy to Stage env"){
-            steps{
-                echo("deploy to stage done")
+                
+     
+        stage('Publish Allure Reports') {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
             }
-        } 
+        }
         
-          stage("Run sanity tests"){
+        
+        
+        
+         stage("Deploy to STAGE"){
             steps{
-                echo("sanity tests done")
+                echo("deploy to STAGE done")
             }
-        } 
+        }
         
-           stage("Deploy to Prod env"){
+        stage('Sanity Automation Test') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                  	 git 'https://github.com/vaibhav9159/APIFW2025'
+                    sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/GoRestSanity.xml"
+                    
+                }
+            }
+        }
+        
+        
+        
+        stage("Deploy to PROD"){
             steps{
-                echo("deploy to prod done")
+                echo("deploy to PROD done !!!!")
             }
-        } 
-        
-        
-        
+        }
     }
 }
