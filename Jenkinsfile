@@ -51,7 +51,7 @@ pipeline {
             def status = sh(
                 script: """
                     docker run --rm -v \$WORKSPACE:/app -w /app ${DOCKER_IMAGE} \
-                    mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=qa
+                    mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Regression.xml -Denv=qa
                 """,
                 returnStatus: true
             )
@@ -124,7 +124,7 @@ pipeline {
                     def status = sh(
                         script: """
                     			docker run --rm -v \$WORKSPACE:/app -w /app ${DOCKER_IMAGE} \
-                    			mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml -Denv=qa
+                    			mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Regression.xml -Denv=qa
                 				""",
                         returnStatus: true
                     )
