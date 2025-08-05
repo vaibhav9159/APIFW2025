@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "vaibhavs07/apifw2025:${BUILD_NUMBER}"
-        DOCKER_CREDENTIALS_ID = 'dockerhub_creds'
+        DOCKER_CREDENTIALS_ID = 'dockerhub-creds'
     }
 
     stages {
