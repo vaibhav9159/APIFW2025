@@ -1,19 +1,17 @@
 package com.qa.api.products.tests;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+
+
 import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.api.base.BaseTest;
 import com.qa.api.constants.AuthType;
 import com.qa.api.pojo.Product;
+
 import com.qa.api.utils.JsonPathValidatorUtils;
 import com.qa.api.utils.JsonUtils;
 
@@ -24,9 +22,9 @@ public class ProductAPITestWIthJsonPath extends BaseTest{
 
 
 	@Test
-	public void GetProductsTest() {
+	public void GetqauctsTest() {
 	
-		Response response= restclient.get(BASE_URL_PRODUCTS, PRODUCTS_GET_ENDPOINT, null, null, AuthType.NO_AUTH, ContentType.ANY);
+		Response response= restclient.get(BASE_URL_qaUCTS, qaUCTS_GET_ENDPOINT, null, null, AuthType.NO_AUTH, ContentType.ANY);
 		Assert.assertEquals(response.statusCode(),200);
 		
 		List<Number> prices = JsonPathValidatorUtils.readList(response, "$.[*].[?(@.price>50)].price");
@@ -48,8 +46,8 @@ public class ProductAPITestWIthJsonPath extends BaseTest{
 		System.out.println("last id  ===>"+lastID);
 		
 		
-		Product product[] = JsonUtils.deserialize(response, Product[].class);
-		for(Product p:product) {
+		Product qauct[] = JsonUtils.deserialize(response, Product[].class);
+		for(Product p:qauct) {
 		Assert.assertNotNull(p.getId());
 	//	System.out.println(p.getId() +" , "+p.getTitle() +" , "+p.getCategory() +" , " +p.getPrice()+" , " +p.getRating().getRate());	
 		}
