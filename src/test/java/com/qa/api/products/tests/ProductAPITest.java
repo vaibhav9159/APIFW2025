@@ -22,7 +22,7 @@ public class ProductAPITest extends BaseTest{
 	@Test
 	public void createUser() {
 	
-		Response response= restclient.get(BASE_URL_qaUCTS, qaUCTS_GET_ENDPOINT, null, null, AuthType.NO_AUTH, ContentType.ANY);
+		Response response= restclient.get(BASE_URL_PRODUCTS, PRODUCTS_GET_ENDPOINT, null, null, AuthType.NO_AUTH, ContentType.ANY);
 		AssertJUnit.assertEquals(response.statusCode(),200);
 		
 		Product product[] = JsonUtils.deserialize(response, Product[].class);

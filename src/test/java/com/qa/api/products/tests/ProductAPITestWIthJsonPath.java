@@ -24,7 +24,7 @@ public class ProductAPITestWIthJsonPath extends BaseTest{
 	@Test
 	public void GetqauctsTest() {
 	
-		Response response= restclient.get(BASE_URL_qaUCTS, qaUCTS_GET_ENDPOINT, null, null, AuthType.NO_AUTH, ContentType.ANY);
+		Response response= restclient.get(BASE_URL_PRODUCTS, PRODUCTS_GET_ENDPOINT, null, null, AuthType.NO_AUTH, ContentType.ANY);
 		Assert.assertEquals(response.statusCode(),200);
 		
 		List<Number> prices = JsonPathValidatorUtils.readList(response, "$.[*].[?(@.price>50)].price");

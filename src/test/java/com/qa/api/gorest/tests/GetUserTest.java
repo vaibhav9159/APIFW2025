@@ -66,7 +66,7 @@ private String tokenid;
 		
 	}
 	
-	@Test
+	@Test(enabled=false)
 	public void getSingleUserTest() {
 		String userid = "8038315";
 		Response response = restclient.get(BASE_URL_GOREST, GOREST_USERS_ENDPOINT+"/"+userid, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);

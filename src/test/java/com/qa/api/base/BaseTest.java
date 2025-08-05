@@ -21,7 +21,7 @@ public class BaseTest {
 	protected  static String BASE_URL_CONTACTS ;
 	protected  static String BASE_URL_REQRES;
 	protected  static String BASE_URL_HEROKU_BASICAUTH ;
-	protected  static String BASE_URL_qaUCTS;
+	protected  static String BASE_URL_PRODUCTS;
 	protected  static String BASE_URL_AMADEUS_OAUTH2;
 	
 	
@@ -39,7 +39,7 @@ public class BaseTest {
 	protected final static String CONTACTS_GET_ENDPOINT = "/contacts";
 	protected final static String REQRES_GET_ENDPOINT = "/api/users";
 	protected final static String BASICAUTH_HEROKU_ENDPOINT = "/basic_auth";
-	protected final static String qaUCTS_GET_ENDPOINT = "/qaucts";
+	protected final static String PRODUCTS_GET_ENDPOINT = "/products";
 	protected final static String AMADEUS_OAUTH2_TOKEN_ENDPOINT = "/v1/security/oauth2/token";
 	protected final static String AMADEUS_OAUTH2_FLIGHT_ENDPOINT = "/v1/shopping/flight-destinations";
 	
@@ -51,7 +51,7 @@ public class BaseTest {
 		BASE_URL_CONTACTS = ConfigManager.get("baseurl.contacts").trim();
 		BASE_URL_REQRES = ConfigManager.get("baseurl.reqres").trim();
 		BASE_URL_HEROKU_BASICAUTH = ConfigManager.get("baseurl.basicauth").trim();
-		BASE_URL_qaUCTS = ConfigManager.get("baseurl.qaucts").trim();
+		BASE_URL_PRODUCTS = ConfigManager.get("baseurl.products").trim();
 		BASE_URL_AMADEUS_OAUTH2 = ConfigManager.get("baseurl.amadeus").trim();
 		
 		
