@@ -1,8 +1,7 @@
 allure-results/
 test-output/
 build/
-config.properties
-config_qa.properties
+src/test/resources/config_qa.properties
 
 
 # Maven
