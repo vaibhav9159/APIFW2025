@@ -17,6 +17,7 @@ public class ConfigManager {
 			String env = System.getProperty("env", "qa");	
 			System.out.println("running tests on env==>"+ env);
 			String fileName = "config_"+env+".properties";
+			System.out.println("fileName===>"+fileName);
 			
 			
 			InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream(fileName);

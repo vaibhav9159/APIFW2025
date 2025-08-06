@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Regression Suite">
-  <test  name="qauct Test">
+  <test  name="product Test">
     <classes>
-      <class name="com.qa.qaucts.tests.qauctAPITest"/>
+      <class name="com.qa.api.products.tests.ProductAPITest"/>
     
     </classes>
   </test> <!-- Test -->
@@ -21,7 +21,7 @@
     <classes>
   
      
-      <class name="com.qa.basicauth.tests.BasicAuthTest"/>
+      <class name="com.qa.api.basicauth.tests.BasicAuthTest"/>
     
     </classes>
   </test> <!-- Test -->
@@ -36,7 +36,7 @@
   <test thread-count="5" name="ReqRes Test">
     <classes>
 
-      <class name="com.qa.reqres.tests.ReqResTest"/>
+      <class name="com.qa.api.reqres.tests.ReqResTest"/>
    
     </classes>
   </test> <!-- Test -->
@@ -47,10 +47,10 @@
 
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="qauct API Test ">
+  <test thread-count="5" name="product API Test ">
     <classes>
 
-      <class name="com.qa.qaucts.tests.qauctAPITestWIthJsonPath"/>
+      <class name="com.qa.api.products.tests.ProductAPITestWIthJsonPath"/>
     </classes>
   </test> <!-- Test -->
   <test thread-count="5" name="GoRest create user Test">
