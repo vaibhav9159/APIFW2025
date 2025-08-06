@@ -23,7 +23,7 @@ public class ConfigManager {
 			if(input!=null) {
 					try {
 						properties.load(input);
-						System.out.println("properties===>"+properties);
+					//	System.out.println("properties===>"+properties);
 					} catch (IOException e) {
 						
 						e.printStackTrace();
