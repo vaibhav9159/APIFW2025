@@ -65,13 +65,25 @@ pipeline
 
         stage('Regression API Automation Test') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                script {
+                    withCredentials([string(credentialsId: 'OAUTH_CLIENT_ID', variable: 'CLIENT_ID'),
+                                     string(credentialsId: 'OAUTH_CLIENT_SECRET', variable: 'CLIENT_SECRET')]) {
+                        
+                        sh "echo 'Client ID: ${CLIENT_ID}'"
+                        sh "echo 'Client Secret: ${CLIENT_SECRET}'"
+
+ catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/vaibhav9159/APIFW2025'
                     sh "mvn clean install -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/Regression.xml -Denv=qa -Dclientid=${CLIENT_ID} -Dclientsecret=${CLIENT_SECRET}"
                     
                 }
-            }
+                       
+                    }
+                }
         }
+               
+        }
+        
         
                 
      
