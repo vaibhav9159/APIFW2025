@@ -24,15 +24,27 @@ pipeline
                 }
             }
         }
-        
-        
+
         
         stage("Deploy to QA"){
             steps{
                 echo("deploy to qa done")
             }
         }
-                
+
+    stage('Read Client Credentials for oauth2 api tests) {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'client-credentials', usernameVariable: 'CLIENT_ID', passwordVariable: 'CLIENT_SECRET')]) {
+                        // Use CLIENT_ID and CLIENT_SECRET here
+                        echo "Client ID: ${CLIENT_ID}" 
+                        echo "Client Secret: ${CLIENT_SECRET}"
+                    }
+                }
+            }
+        }
+        
+
         stage('Regression API Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
