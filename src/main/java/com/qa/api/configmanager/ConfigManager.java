@@ -13,7 +13,9 @@ public class ConfigManager {
 				// this is reflection concept or reflection api we are using it , its faster than file i/p stream
 		// as its not a methd , its a block it will directly go to metaspace and its available everywhre anytime, evry class
 		// since its a static block it will be loaded even before the class is loaded
-		
+
+			String clientid = System.getProperty("clientid");
+			String clientsecret = System.getProperty("clientsecret");
 			String env = System.getProperty("env", "qa");	
 			System.out.println("running tests on env==>"+ env);
 			String fileName = "config_"+env+".properties";
